@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rigidbody2D;
     //ジャンプする時の力
     float jumpForce = 680.0f;
+    //歩く時の力
+    float walkForce = 30.0f;
+    float maxWalkSpeed = 2.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,5 +28,25 @@ public class PlayerController : MonoBehaviour
         {
             this.rigidbody2D.AddForce(transform.up * this.jumpForce);
         }
+        //左右に移動
+        int key = 0;
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            key = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            key = -1;
+        }
+
+        //プレイヤー速度
+        float speedx = Mathf.Abs(this.rigidbody2D.velocity.x);
+
+        //スピード制限
+        if (speedx < this.maxWalkSpeed)
+        {
+            this.rigidbody2D.AddForce(transform.right * key * this.walkForce);
+        }
+
     }
 }
