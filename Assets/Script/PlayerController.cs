@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rigidbody2D;
     //ジャンプする時の力
     float jumpForce = 680.0f;
+    //アニメーション
+    Animator animator;
     //歩く時の力
     float walkForce = 30.0f;
     float maxWalkSpeed = 2.0f;
@@ -18,6 +20,7 @@ public class PlayerController : MonoBehaviour
         Application.targetFrameRate = 60;
         //Rigdbodyをコンポーネント
         this.rigidbody2D = GetComponent<Rigidbody2D>();
+        this.animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -52,5 +55,7 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = new Vector3(key,1,1);
         }
+
+        this.animator.speed = speedx / .75f;
     }
 }
