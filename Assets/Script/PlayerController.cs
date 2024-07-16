@@ -47,6 +47,10 @@ public class PlayerController : MonoBehaviour
         {
             this.rigidbody2D.AddForce(transform.right * key * this.walkForce);
         }
-
+        //“®‚­•ûŒü‚Å”½“]‚³‚¹‚é
+        if(key != 0)
+        {
+            transform.localScale = new Vector3(key,1,1);
+        }
     }
 }
