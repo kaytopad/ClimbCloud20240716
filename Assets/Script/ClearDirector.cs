@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ClearDierctor : MonoBehaviour
+public class ClearDirector : MonoBehaviour
 {
-    // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            SceneManager.LoadScene("GameScenes");
+        }
         
     }
 }
