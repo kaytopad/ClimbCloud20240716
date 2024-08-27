@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     //èdóÕ
@@ -58,11 +58,17 @@ public class PlayerController : MonoBehaviour
 
 
         this.animator.speed = speedx / .75f;
+
+        if (transform.position.y < -10 || transform.position.x < -3 || transform.position.x > 3)
+        {
+            SceneManager.LoadScene("GameScenes");
+        }
     }
 
     //ÉSÅ[ÉãÇ…ìûíÖ
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Goal");
+        SceneManager.LoadScene("CleaerScene");
     }
 }
