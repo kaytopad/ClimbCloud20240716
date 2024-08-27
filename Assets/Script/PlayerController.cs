@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //ƒWƒƒƒ“ƒv‚·‚é
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && this.rigidbody2D.velocity.y == 0)
         {
             this.rigidbody2D.AddForce(transform.up * this.jumpForce);
         }
@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = new Vector3(key,1,1);
         }
+
 
         this.animator.speed = speedx / .75f;
     }
